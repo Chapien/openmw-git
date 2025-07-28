@@ -170,13 +170,14 @@ Various utility tools for developing and debugging with OpenMW
 
 %conf
 # Prepare the cmake
+# topdir<number> is set for each source by %%forgemeta.
 %cmake -G Ninja \
     -DBUILD_OPENMW_TESTS:BOOL=ON \
     -DBULLET_STATIC:BOOL=ON \
     -DFETCHCONTENT_FULLY_DISCONNECTED:BOOL=ON \
-    -DFETCHCONTENT_SOURCE_DIR_BULLET:PATH=%{_builddir}/bullet \
-    -DFETCHCONTENT_SOURCE_DIR_OSG:PATH:PATH=%{_builddir}/osg \
-    -DFETCHCONTENT_SOURCE_DIR_RECASTNAVIGATION:PATH=%{_builddir}/recastnavigation \
+    -DFETCHCONTENT_SOURCE_DIR_BULLET:PATH=%{_builddir}/%{topdir1} \
+    -DFETCHCONTENT_SOURCE_DIR_OSG:PATH:PATH=%{_builddir}/%{topdir2} \
+    -DFETCHCONTENT_SOURCE_DIR_RECASTNAVIGATION:PATH=%{_builddir}/%{topdir3} \
     -DGLOBAL_DATA_PATH:PATH=%{_datadir} \
     -DOPENMW_USE_SYSTEM_BULLET:BOOL=OFF \
     -DOPENMW_USE_SYSTEM_GOOGLETEST:BOOL=ON \
