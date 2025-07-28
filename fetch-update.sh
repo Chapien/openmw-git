@@ -15,7 +15,7 @@ fi
 echo "Making sure our repo is up to date"
 cd openmw-git
 git pull
-cd /HOME/$USER/repos
+cd /home/$USER/repos
 
 echo "Checking if we already have the openmw repo"
 if test -d "openmw"; then
