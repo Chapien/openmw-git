@@ -165,10 +165,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Various utility tools for developing and debugging with OpenMW
 
 %prep
-%setup -qn openmw-%{commit0}
-%__rpmuncompress -x %{SOURCE1} -C %{_builddir}/bullet
-%__rpmuncompress -x %{SOURCE2} -C %{_builddir}/osg
-%__rpmuncompress -x %{SOURCE3} -C %{_builddir}/recastnavigation
+%setup -q %{forgesetupargs0} -b1 -b2 -b3
 %autopatch -p1
 
 %conf
