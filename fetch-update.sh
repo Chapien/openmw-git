@@ -29,7 +29,7 @@ if test -d "openmw"; then
     fi
 else
     echo "openmw not found."
-    echo "openmw SIF repo..."
+    echo "cloning openmw repo..."
     git clone git@gitlab.com:OpenMW/openmw.git
     cd openmw
 fi
