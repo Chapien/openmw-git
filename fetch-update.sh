@@ -34,15 +34,12 @@ else
     cd openmw
 fi
 
-COMMITHASH=$(git rev-parse HEAD)
 COMMITNUM=$(git rev-list --count --all)
-echo "openmw commit hash $COMMITHASH"
 echo "openmw commit number $COMMITNUM"
 
 echo "Updating specfile"
 cd /home/$USER/repos/openmw-git
 sed "/^%global         commitnum.*/ s//%global         commitnum $COMMITNUM/" openmw-git.spec > openmw-git.spec
-sed "/^%global         commit0.*/ s//%global         commit0 $COMMITHASH/" openmw-git.spec > openmw-git.spec
 echo "Spec file updated"
 git add -A
 git commit -m "Updating repo"

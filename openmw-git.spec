@@ -23,7 +23,7 @@ Release:        %autorelease
 Summary:        OpenMW is an open-source game engine
 
 # Stable release source code
-%global         commit0 176dab5b3d612bd7372498aa90febb7f9274f0c5
+%global         branch0 master
 # Latest bullet3 release tag
 %global         tag1 3.25
 # Latest OSG OpenMW fork commit tag
