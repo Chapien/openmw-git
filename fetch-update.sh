@@ -58,3 +58,5 @@ echo "Copy the spec file to our webserver"
 cp openmw-git.spec /data/drive2/minhttps/copr/openmw-git/openmw-git.spec
 echo "Starting copr build!"
 copr-cli build --nowait chapien/openmw https://files.chapien.net/copr/openmw-git/openmw-git.spec
+echo "Build started!"
+exit 0
