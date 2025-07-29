@@ -118,6 +118,8 @@ BuildRequires:  pkgconfig(librsvg-2.0) >= 2.35
 BuildRequires:  pkgconfig(poppler-glib)
 BuildRequires:  pkgconfig(xrandr)
 
+Conflicts:      openmw
+
 # We symlink the system version of this font into the game's data directory
 Requires:       dejavu-lgc-sans-mono-fonts
 
