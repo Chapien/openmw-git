@@ -7,7 +7,7 @@
 # RecastNavigation
 %global         forgeurl3 https://github.com/recastnavigation/recastnavigation/
 
-%global         omwversion 0.49.0
+%global         omwversion 0.50.0
 %global         commitnum 37895
 
 # Supported architectures: x86_64, x86, ARMArch64, MIPS
