@@ -8,7 +8,7 @@
 %global         forgeurl3 https://github.com/recastnavigation/recastnavigation/
 
 %global         omwversion 0.50.0
-%global         commitnum 38408
+%global         commitnum 38410
 
 # Supported architectures: x86_64, x86, ARMArch64, MIPS
 # x86 does not currently build https://gitlab.com/OpenMW/openmw/-/issues/8625
