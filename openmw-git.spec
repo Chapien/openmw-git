@@ -7,6 +7,9 @@
 # RecastNavigation
 %global         forgeurl3 https://github.com/recastnavigation/recastnavigation/
 
+%global         omwversion 0.51.0
+%global         commitnum 38410
+
 # Supported architectures: x86_64, x86, ARMArch64, MIPS
 # x86 does not currently build https://gitlab.com/OpenMW/openmw/-/issues/8625
 # Even if it did, we don't want to package another 32 bit package
@@ -14,13 +17,13 @@
 # Therefore, we're only going to package x86_64 and ARM64
 ExclusiveArch: %{x86_64} %{arm64}
 
-Name:           openmw
-Version:        0.50.0
+Name:           openmw-git
+Version:        %{omwversion}.%{commitnum}
 Release:        %autorelease
 Summary:        OpenMW is an open-source game engine
 
 # Stable release source code
-%global         tag0 %{name}-%{version}
+%global         branch0 master
 # Latest bullet3 release tag
 %global         tag1 3.25
 # Latest OSG OpenMW fork commit tag
@@ -112,6 +115,8 @@ BuildRequires:  pkgconfig(gtkglext-x11-1.0)
 BuildRequires:  pkgconfig(librsvg-2.0) >= 2.35
 BuildRequires:  pkgconfig(poppler-glib)
 BuildRequires:  pkgconfig(xrandr)
+
+Conflicts:      openmw
 
 # We symlink the system version of this font into the game's data directory
 Requires:       dejavu-lgc-sans-mono-fonts
