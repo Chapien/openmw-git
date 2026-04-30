@@ -46,9 +46,8 @@ Source0:        %{forgesource0}
 Source1:        %{forgesource1}
 Source2:        %{forgesource2}
 Source3:        %{forgesource3}
-# openmw-cs currently runs under wayland, but there's bugs that make it basically unusable
-# this patches the default desktop file to add QT_QPA_PLATFORM=xcb
-Patch0:         csxcb.patch
+
+
 
 # OpenMW Build Dependencies
 BuildRequires:  boost-devel
@@ -165,7 +164,6 @@ Various utility tools for developing and debugging with OpenMW
 # into separate directories in %%{_builddir}.
 # Then, switch into the unpacked Source0 directory.
 %setup -q %{forgesetupargs0} -b1 -b2 -b3
-%autopatch -p1
 
 %conf
 # Prepare the cmake
