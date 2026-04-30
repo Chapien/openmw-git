@@ -7,9 +7,6 @@
 # RecastNavigation
 %global         forgeurl3 https://github.com/recastnavigation/recastnavigation/
 
-%global         omwversion 0.50.0
-%global         commitnum 38410
-
 # Supported architectures: x86_64, x86, ARMArch64, MIPS
 # x86 does not currently build https://gitlab.com/OpenMW/openmw/-/issues/8625
 # Even if it did, we don't want to package another 32 bit package
@@ -17,13 +14,13 @@
 # Therefore, we're only going to package x86_64 and ARM64
 ExclusiveArch: %{x86_64} %{arm64}
 
-Name:           openmw-git
-Version:        %{omwversion}.%{commitnum}
+Name:           openmw
+Version:        0.50.0
 Release:        %autorelease
 Summary:        OpenMW is an open-source game engine
 
 # Stable release source code
-%global         branch0 master
+%global         tag0 %{name}-%{version}
 # Latest bullet3 release tag
 %global         tag1 3.25
 # Latest OSG OpenMW fork commit tag
@@ -51,14 +48,13 @@ Source2:        %{forgesource2}
 Source3:        %{forgesource3}
 # openmw-cs currently runs under wayland, but there's bugs that make it basically unusable
 # this patches the default desktop file to add QT_QPA_PLATFORM=xcb
-Patch0:         https://files.chapien.net/copr/openmw-git/csxcb.patch
+Patch0:         csxcb.patch
 
 # OpenMW Build Dependencies
 BuildRequires:  boost-devel
 BuildRequires:  boost-filesystem
 BuildRequires:  boost-iostreams
 BuildRequires:  boost-program-options
-BuildRequires:  boost-system
 BuildRequires:  boost-thread
 BuildRequires:  cmake
 BuildRequires:  cmake(SDL2)
@@ -118,8 +114,6 @@ BuildRequires:  pkgconfig(librsvg-2.0) >= 2.35
 BuildRequires:  pkgconfig(poppler-glib)
 BuildRequires:  pkgconfig(xrandr)
 
-Conflicts:      openmw
-
 # We symlink the system version of this font into the game's data directory
 Requires:       dejavu-lgc-sans-mono-fonts
 
@@ -167,11 +161,16 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Various utility tools for developing and debugging with OpenMW
 
 %prep
+# Unpack the main source archive and the secondary sources
+# into separate directories in %%{_builddir}.
+# Then, switch into the unpacked Source0 directory.
 %setup -q %{forgesetupargs0} -b1 -b2 -b3
 %autopatch -p1
 
 %conf
 # Prepare the cmake
+# Minimum CMake version is now 3.5, and bullet builds with this.
+export CMAKE_POLICY_VERSION_MINIMUM=3.5
 # topdir<number> is set for each source by %%forgemeta.
 %cmake -G Ninja \
     -DBUILD_OPENMW_TESTS:BOOL=ON \
