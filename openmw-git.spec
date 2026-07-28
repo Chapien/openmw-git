@@ -27,7 +27,7 @@ Summary:        OpenMW is an open-source game engine
 # Latest bullet3 release tag
 %global         tag1 3.25
 # Latest OSG OpenMW fork commit tag
-%global         commit2 43faf6fa88bd236e0911a5340bfbcbc25b3a98d9
+%global         commit2 638f0a1e73687633fd99bf110d04226e78ff69c6
 # Preferred commit by upstream for recastnavigation
 %global         commit3 c393777d26d2ff6519ac23612abf8af42678c9dd
 %forgemeta -a
