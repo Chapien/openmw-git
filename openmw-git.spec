@@ -195,6 +195,7 @@ export CMAKE_POLICY_VERSION_MINIMUM=3.5
 %install
 %cmake_install
 rm %{buildroot}%{_datadir}/openmw/resources/vfs/fonts/DejaVuLGCSansMono.ttf
+rm -rf %{buildroot}%{_datadir}/doc/OpenMW
 mv %{buildroot}/usr/etc/openmw/openmw.cfg %{buildroot}%{_sysconfdir}/openmw/openmw.cfg
 # Symlink system dejavu font
 ln -sr %{buildroot}%{_datadir}/fonts/dejavu-lgc-sans-mono-fonts/DejaVuLGCSansMono.ttf %{buildroot}%{_datadir}/openmw/resources/vfs/fonts/DejaVuLGCSansMono.ttf
