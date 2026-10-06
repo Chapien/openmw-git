@@ -176,13 +176,13 @@ Various utility tools for developing and debugging with OpenMW
 export CMAKE_POLICY_VERSION_MINIMUM=3.5
 # topdir<number> is set for each source by %%forgemeta.
 %cmake -G Ninja \
+    -DCMAKE_POLICY_DEFAULT_CMP0192=NEW \
     -DBUILD_OPENMW_TESTS:BOOL=ON \
     -DBULLET_STATIC:BOOL=ON \
     -DFETCHCONTENT_FULLY_DISCONNECTED:BOOL=ON \
     -DFETCHCONTENT_SOURCE_DIR_BULLET:PATH=%{_builddir}/%{topdir1} \
     -DFETCHCONTENT_SOURCE_DIR_OSG:PATH:PATH=%{_builddir}/%{topdir2} \
     -DFETCHCONTENT_SOURCE_DIR_RECASTNAVIGATION:PATH=%{_builddir}/%{topdir3} \
-    -DGLOBAL_DATA_PATH:PATH=%{_datadir} \
     -DOPENMW_USE_SYSTEM_BULLET:BOOL=OFF \
     -DOPENMW_USE_SYSTEM_GOOGLETEST:BOOL=ON \
     -DOPENMW_USE_SYSTEM_OSG:BOOL=OFF \
@@ -195,6 +195,7 @@ export CMAKE_POLICY_VERSION_MINIMUM=3.5
 %install
 %cmake_install
 rm %{buildroot}%{_datadir}/openmw/resources/vfs/fonts/DejaVuLGCSansMono.ttf
+mv %{buildroot}/usr/etc/openmw/openmw.cfg %{buildroot}%{_sysconfdir}/openmw/openmw.cfg
 # Symlink system dejavu font
 ln -sr %{buildroot}%{_datadir}/fonts/dejavu-lgc-sans-mono-fonts/DejaVuLGCSansMono.ttf %{buildroot}%{_datadir}/openmw/resources/vfs/fonts/DejaVuLGCSansMono.ttf
 
