@@ -59,7 +59,7 @@ BuildRequires:  boost-iostreams
 BuildRequires:  boost-program-options
 BuildRequires:  boost-thread
 BuildRequires:  cmake
-BuildRequires:  cmake(SDL2)
+BuildRequires:  cmake(SDL3)
 BuildRequires:  collada-dom-devel
 BuildRequires:  dejavu-lgc-sans-mono-fonts
 BuildRequires:  desktop-file-utils
