@@ -66,7 +66,6 @@ BuildRequires:  dejavu-lgc-sans-mono-fonts
 BuildRequires:  desktop-file-utils
 BuildRequires:  ffmpeg-free-devel
 BuildRequires:  gcc
-BuildRequires:  glm
 BuildRequires:  glm-devel
 BuildRequires:  gmock-devel
 BuildRequires:  gtest-devel
@@ -187,6 +186,7 @@ export CMAKE_POLICY_VERSION_MINIMUM=3.5
     -DFETCHCONTENT_SOURCE_DIR_OSG:PATH:PATH=%{_builddir}/%{topdir2} \
     -DFETCHCONTENT_SOURCE_DIR_RECASTNAVIGATION:PATH=%{_builddir}/%{topdir3} \
     -DOPENMW_USE_SYSTEM_BULLET:BOOL=OFF \
+	-DOPENMW_USE_SYSTEM_GLM:BOOL=ON \
     -DOPENMW_USE_SYSTEM_GOOGLETEST:BOOL=ON \
     -DOPENMW_USE_SYSTEM_OSG:BOOL=OFF \
     -DOSG_STATIC:BOOL=ON
