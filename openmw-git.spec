@@ -66,6 +66,7 @@ BuildRequires:  dejavu-lgc-sans-mono-fonts
 BuildRequires:  desktop-file-utils
 BuildRequires:  ffmpeg-free-devel
 BuildRequires:  gcc
+BuildRequires:  glm-devel
 BuildRequires:  gmock-devel
 BuildRequires:  gtest-devel
 BuildRequires:  libXt-devel
